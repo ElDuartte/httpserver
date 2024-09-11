@@ -17,3 +17,10 @@ func getHello(w http.ResponseWritter, r *http.Request){
 	fmt.Printf("got /hello request\n")
 	io.WriteString(w, "Hello, http\n")
 }
+
+func main(){
+	http.HandleFunc("/", getRoot)
+	http.HandleFunc('/hello', getHello)
+
+	err := http.ListenAndServe(":6969", nil)
+}

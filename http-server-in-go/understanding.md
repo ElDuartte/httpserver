@@ -20,7 +20,11 @@ Similar to FDM but uses different Wavelengths of light in optical fibers to carr
 ##### Code division multiplexing (CDM):
 Different signals are assigned unique codes and transmitted simultaneously over the same Frequency.
 
-### Why multiplexing is important:
+#### Why multiplexing is important:
 - Efficiency: It maximizes the utilization of available resources like bandwidth
 - Cost-saving: Multiple signals can share a single physical infrastructure, reducing costs.
 - Scalability: It allows for the system to grow by adding more signals or data streams without needing to add new physical channels.
+
+#### Running multiple Servers at one time
+Sometimes you may want to customize how the server runs, or you may want to run multiple HTTP servers in the same program at once. For example, you may have a public website and a private admin website you want to run from the same program. Since you can only have one default HTTP server, you wouldn't be able to do this with the default one.
+

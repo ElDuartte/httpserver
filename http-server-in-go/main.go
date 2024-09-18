@@ -22,6 +22,13 @@ func serveHTML(w http.ResponseWriter, r *http.Request, filePath string){
 func getRoot(w http.ResponseWriter, r *http.Request){
 	ctx := r.Context()
 
+	cookie, err := r.Cookie("my-cookie")
+	if err == nil{
+		fmt.Printf("Cookie value: %s\n", cookie.Value)
+	}
+
+	setCookie(w, "my-cookie", "cookie-value-test")
+
 	fmt.Printf("%s: got / request\n", ctx.Value(keyServerAddr))
 
 	serveHTML(w, r, "./home.html")
@@ -50,6 +57,15 @@ func startServer(addr string, handler http.Handler, baseCtx context.Context) err
 	}
 	fmt.Printf("server closed on %s\n", addr)
 	return nil
+}
+
+func setCookie(w http.ResponseWriter, name, value string){
+	cookie := &http.Cookie{
+		Name: name,
+		Value: value,
+		Path: "/",
+	}
+	http.setCookie(w, cookie)
 }
 
 func main() {

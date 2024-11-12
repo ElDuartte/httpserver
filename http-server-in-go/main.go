@@ -20,6 +20,7 @@ func serveHTML(w http.ResponseWriter, r *http.Request, filePath string){
 }
 
 func getRoot(w http.ResponseWriter, r *http.Request){
+	fmt.Println("Received request on /")
 	ctx := r.Context()
 
 	cookie, err := r.Cookie("my-cookie")
@@ -35,6 +36,7 @@ func getRoot(w http.ResponseWriter, r *http.Request){
 }
 
 func getHello(w http.ResponseWriter, r *http.Request){
+	fmt.Println("Received request on /show")
 	ctx := r.Context()
 
 	fmt.Printf("%s: Got /hello request\n", ctx.Value(keyServerAddr))
@@ -69,6 +71,8 @@ func setCookie(w http.ResponseWriter, name, value string){
 }
 
 func main() {
+	fmt.Println("Server started, make a get request to ports 7070 or 6969")
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", getRoot)
 	mux.HandleFunc("/show", getHello)

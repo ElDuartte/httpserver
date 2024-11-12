@@ -11,3 +11,10 @@
 
 ### Future:
 - HTTPS
+
+
+## For the Go project:
+- Install Go
+- Run this command to run the http server
+  `go run main.go`
+- To see if it's working make a =GET= request on the ports 6969 or 7070

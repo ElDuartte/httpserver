@@ -65,7 +65,7 @@ func setCookie(w http.ResponseWriter, name, value string){
 		Value: value,
 		Path: "/",
 	}
-	http.setCookie(w, cookie)
+	http.SetCookie(w, cookie)
 }
 
 func main() {
